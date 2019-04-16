@@ -28,6 +28,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('report-1', 'ReportsController@getHousesResidents')->name('report-1');
-Route::get('report-2', 'ReportsController@getEmptyHouses')->name('report-2');
-Route::get('report-3', 'ReportsController@getEmptyHouses')->name('report-3');
+Route::get('report-1', 'ReportsController@showEvenHousesResidents')->name('report-1');
+Route::get('report-2', 'ReportsController@showIndividualsData')->name('report-2');
+Route::get('report-3', 'ReportsController@showEmptyHouses')->name('report-3');
+Route::get('report-4', 'ReportsController@showHousesCodes')->name('report-4');

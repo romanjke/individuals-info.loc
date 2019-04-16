@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Отчет №2: &laquo;Пустующие дома&raquo;
+    Отчет №3: &laquo;Город, улица, № дома для пустующих домов&raquo;
 @endsection
 
 @section('content')
@@ -11,13 +11,13 @@
                 <tr>
                     <th>Город</th>
                     <th>Улица</th>
-                    <th>Пустующие дома</th>
+                    <th>Интервал домов</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($houses as $house)
                 <tr>
-                    <td>{{ $house->city }} {{ $house->city_socr }}.</td>
+                    <td>{{ $house->site }} {{ $house->site_socr }}</td>
                     <td>{{ $house->street }} {{ $house->street_socr }}.</td>
                     <td>{{ $house->houses_numbers }}</td>
                 </tr>
