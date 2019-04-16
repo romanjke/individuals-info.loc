@@ -16,8 +16,6 @@ class ReportsController extends Controller
             return $repository->getEvenHousesResidents()->paginate('15');
         });
 
-        // $houses = $repository->getEvenHousesResidents()->paginate('15');
-
         return view('reports.report-1', compact('houses'));
     }
 
@@ -28,8 +26,6 @@ class ReportsController extends Controller
         $data = Cache::remember('individualsData_page_' . $page, 15, function() use ($repository) {
             return $repository->getIndividualsData()->paginate('15');
         });
-
-        // $data = $repository->getIndividualsData()->paginate('15');
 
         return view('reports.report-2', compact('data'));
     }
@@ -42,8 +38,6 @@ class ReportsController extends Controller
             return $repository->getEmptyHouses()->paginate('15');
         });
 
-        // $houses = $repository->getEmptyHouses()->paginate('15');
-
         return view('reports.report-3', compact('houses'));
     }
 
@@ -54,8 +48,6 @@ class ReportsController extends Controller
         $housesCodes = Cache::remember('housesCodes_page_' . $page, 15, function() use ($repository) {
             return $repository->getHousesCodes()->paginate('15');
         });
-
-        // $housesCodes = $repository->getHousesCodes()->paginate('15');
 
         return view('reports.report-4', compact('housesCodes'));
     }
