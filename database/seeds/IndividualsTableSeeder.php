@@ -11,7 +11,7 @@ class IndividualsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Individual::class, 50)
+        factory(App\Individual::class, 200)
             ->make()
             ->each(function ($individual) {
                 $house = App\House::inRandomOrder()->first();
