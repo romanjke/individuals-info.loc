@@ -32,6 +32,14 @@
 
             @yield('content')
         </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="text-muted">
+                    Данные физических лиц (ФИО, № паспорт, квартира) являются вымышленными, любое совпадение с реальностью случайно
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- Scripts -->
