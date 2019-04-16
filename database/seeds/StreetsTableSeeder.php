@@ -1,6 +1,8 @@
 <?php
 
 use Flynsarmy\CsvSeeder\CsvSeeder;
+use App\Kladr;
+use App\Street;
 
 class StreetsTableSeeder extends CsvSeeder
 {
@@ -22,18 +24,27 @@ class StreetsTableSeeder extends CsvSeeder
 
         parent::run();
 
-        $arKladr = App\Kladr::all()->pluck('code', 'id')->all();
-        $streets = App\Street::all();
+        $arKladr = Kladr::all()->pluck('code', 'id')->all();
+        $streets = Street::all();
 
         foreach ($streets as $street)
         {
+            $code = $street->code;
             $kladr_id = array_search(substr($street->code, 0, -6) . '00', $arKladr);
 
-            if($kladr_id)
+            $street->region = substr($code, 0, 2);
+            $street->district = substr($code, 2, 3);
+            $street->city = substr($code, 5, 3);
+            $street->town = substr($code, 8, 3);
+            $street->street = substr($code, 11, 4);
+            $street->relevance = substr($code, 15, 2);
+
+            if ($kladr_id)
             {
                 $street->kladr_id = $kladr_id;
-                $street->save();
             }
+
+            $street->save();
         }
     }
 }
